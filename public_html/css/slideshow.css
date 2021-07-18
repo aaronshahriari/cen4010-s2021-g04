@@ -1,0 +1,51 @@
+
+/*---------------------------------slideshow css(W3Schooles.com)---------------------------------*/
+/*---------------------------------slideshow css(W3Schooles.com)---------------------------------*/
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#slidecap {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+
+}
+@media screen and (min-width: 601px) {
+    #slideshowsec {
+        font-size: 80px;
+    }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    #slideshowsec {
+        font-size: 30px;
+    }
+}
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+   
+}
+#slideshowsec {
+    padding-top: 15px;
+}
+.caption-va .carousel-caption {
+    position: absolute;
+    top: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    height: 100%;
+    
+}
+

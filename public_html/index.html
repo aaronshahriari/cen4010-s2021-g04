@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/login.css">
+
+
+    <!-- Personal JS -->
+    <script src="./js/index.js"></script>
+    <title>Sign In</title>
+
+    <link rel="icon" href="./img/sitelogo1a.png">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <h2>Modal Login Form</h2>
+
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Signup</button>
+
+    <div id="id01" class="modal">
+
+        <form class="modal-content animate" action="./php/login.php" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <!-- <img src="avatar.png" alt="Avatar" class="avatar"> -->
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+
+    <div id="id02" class="modal">
+
+        <form class="modal-content animate" action="./php/signup.php" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <img src="./img/avatar.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <div class='row'>
+                    <div class='col'>
+                        <label for="fname"><b>First Name</b></label>
+                        <input type="text" placeholder="Enter First name" name="fname" required>
+                    </div>
+                    <div class='col'>
+                        <label class='col' for="lname"><b>Last Name</b></label>
+                        <input type="text" placeholder="Enter Last name" name="lname" required>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" name="email" required>
+                    </div>
+                    <div class='col'>
+                        <label for="pnumber"><b>Phone Number</b></label>
+                        <input type="text" placeholder="Enter Phone Number" name="pnumber" required>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                    </div>
+                </div>
+                <button type="submit">Signup</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal1 = document.getElementById('id01');
+        var modal2 = document.getElementById('id02');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal1 || event.target == modal2) {
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+            }
+        }
+    </script>
+    <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+        <a class="navbar-brand" href="index.html"><img id="logo" src="sitelogo1a.png"></a>
+    </nav> -->
+    <div class="nav-copy"></div>
+
+
+    <br />
+    <p>This will be sign in page</p>
+    <a href="./home.html">On Correct Sign in</a>
+    <h1><span class="glyphicon glyphicon-info-sign" id="sign"></span> TEMPORARY DEVELOPER NOTE: EVERYONE PLEASE USE BOOTSTRAP 3.4.1</h1>
+    <p>Without it the nav bar will not work</p>
+    <p>link: https://getbootstrap.com/docs/3.4/getting-started/ </p>
+    <style>
+        #sign{
+            color: yellow;
+            font-size: 150%;
+            vertical-align: middle;
+        }
+    </style>
+
+</body>
+
+</html>

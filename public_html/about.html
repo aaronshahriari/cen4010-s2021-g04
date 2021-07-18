@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="./css/about.css">
+
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="home.html" id="passivelink"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li class="active"><a href="browse.html" id="activelink">Browse</a></li>
+                    <li><a href="index.html" id="passivelink">Social</a></li>
+                    <li><a href="about.html" id="passivelink">About</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">My <span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+        <!-- <div class="row"> -->
+        <div id="card1" class="flip-card col-lg-3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+
+                    <div class="crop"><img src="./img/aaron_photo.png" alt="Aaron"
+                            style="height: 100%; margin: 0px 0px 0px 0px;"></div>
+                    <h1 class='name'>Aaron Shahriari</h1>
+                    <p class="title">Scrum Master</p>
+                    <p class='school'>Florida Atlantic University</p>
+                    <a href="https://lamp.cse.fau.edu/~ashahriari2019/"><i
+                            class="glyphicon glyphicon-user">Website</i></a>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>More Info</button>
+                </div>
+                <div class="flip-card-back">
+                    <p class="Bio">How's it going!! My name is Aaron and this year will be my senior year at FAU. I
+                        transferred her after my freshmen year to play football. I still play football here at FAU
+                        and am getting my bachelors degree in Computer Science. I thoroughly enjoy programming and
+                        learning new programming languages and the best ways to use them.
+                    </p>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>Back to front</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="card2" class="flip-card col-lg-3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+
+                    <div class="crop"><img src="./img/juan1.png" alt="Juan"
+                            style="width: 100%; margin: -100px 0px 0px 0px;"></div>
+                    <h1 class='name'>Juan Merlos Jr.</h1>
+                    <p class="title">Developer</p>
+                    <p class='school'>Florida Atlantic University</p>
+                    <a href="https://lamp.cse.fau.edu/~jmerlosjr2017/"><i
+                            class="glyphicon glyphicon-user">Website</i></a>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>More Info</button>
+                </div>
+                <div class="flip-card-back">
+                    <p class="Bio">Hello, my name is Juan and I'm a 3rd year Computer Science student here at
+                        Florida Atlantic University. I have a great interest in learning about technology and the
+                        ever advancing field of computer programming. I also enjoy hiking, camping, and playing
+                        video games.
+                    </p>
+
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>Back to front</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="card3" class="flip-card col-lg-3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+
+                    <div class="crop"><img src="./img/NatePic.png.jpg" alt="Nate"
+                            style="width: 100%; margin: -50px 0px 0px 0px;"></div>
+                    <h1 class='name'>Nathaniel Martin</h1>
+                    <p class="title">Development Manager</p>
+                    <p class='school'>Florida Atlantic University</p>
+                    <a href="https://lamp.cse.fau.edu/~nathanielmar2019/"><i
+                            class="glyphicon glyphicon-user">Website</i></a>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>More Info</button>
+                </div>
+                <div class="flip-card-back">
+                    <p class="Bio">Hi I am Nate and this is my 3rd year at FAU. I love to mess around with
+                        technology and work with others on projects. I spend most of my freetime playing video games
+                        or volleyball!
+                    </p>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>Back to front</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="card4" class="flip-card col-lg-3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+
+                    <div class="crop"><img src="./img/Sebastian.jpg" alt="Nate"
+                            style="width:250%; margin: -225px 0px 0px -75px;"></div>
+                    <h1 class='name'>Sebastian Nunez</h1>
+                    <p class="title">Developer</p>
+                    <p class='school'>Florida Atlantic University</p>
+                    <a href="https://lamp.cse.fau.edu/~nunezs2018/"><i class="glyphicon glyphicon-user">Website</i></a>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>More Info</button>
+                </div>
+                <div class="flip-card-back">
+                    <p class="Bio">Hello, my name is Sebastian. This will be the beginning of my senior year here at
+                        FAU majoring in Computer Science. I love technology and try my best when learning new skills
+                        that deal with it, in my free time I enjoy video games, drawing, and outdoor activities such
+                        as fishing. I even have been trying to learn about video game design in my own free time.
+                    </p>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>Back to front</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="card5" class="flip-card col-lg-3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+
+                    <div class="crop"><img src="./img/terrence.jpg" alt="Terrence"
+                            style="width: 100%; margin: -50px 0px 0px 0px;"></div>
+                    <h1 class='name'>Terrence Charitable</h1>
+                    <p class="title">Product Owner</p>
+                    <p class='school'>Florida Atlantic University</p>
+                    <a href="https://lamp.cse.fau.edu/~tcharitable2018/"><i
+                            class="glyphicon glyphicon-user">Website</i></a>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>More Info</button>
+
+                </div>
+                <div class="flip-card-back">
+                    <p class="Bio">Hello, my name is Terrence Charitable and I'm a junior undergrad at FAU. I enjoy
+                        working on personal projects whether its coding or using various editing softwares such as
+                        Photoshop, Illustrator, and Premiere.
+                    </p>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>Back to front</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="card6" class="flip-card col-lg-3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+
+                    <div class="crop"><img src="./img/jira.png" alt="Jira" style="height: 90%;"></div>
+                    <h1 class='name'>Jira</h1>
+                    <p class="title">Group Sites</p>
+                    <p class='school'>Florida Atlantic University</p>
+                    <a
+                        href="https://group4dev.atlassian.net/jira/software/projects/GROUP/boards/1/roadmap?shared=&atlOrigin=eyJpIjoiMWRiYzgwNTNmNzkwNDIyZThlZWIwZGZmOGYzOGYyMmMiLCJwIjoiaiJ9"><i
+                            class="glyphicon glyphicon-user">Website</i></a>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>More Info</button>
+                </div>
+                <div class="flip-card-back">
+                    <p class="Bio">Jira is a family of products built to help all types of teams manage
+                        their work. Jira offers several products and deployment options that are purpose-built
+                        for Software, IT, Business, Ops teams, and more.
+                    </p>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>Back to front</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="card7" class="flip-card col-lg-3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+
+                    <div class="crop"><img src="./img/github.png" alt="Github" style="height: 100%;"></div>
+                    <h1 class='name'>Github</h1>
+                    <p class="title">Group Sites</p>
+                    <p class='school'>Florida Atlantic University</p>
+                    <a href="https://github.com/aaronshahriari/cen4010-s2021-g04"><i
+                            class="glyphicon glyphicon-user">Website</i></a>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>More Info</button>
+                </div>
+                <div class="flip-card-back">
+                    <p class="Bio">Github is a web-based platform used for version control. Git simplifies
+                        the process of working with other people and makes it easy to collaborate on projects.
+                        Team members can work on files and easily merge their changes in with the master branch
+                        of the project.
+                    </p>
+                    <button onclick='cardFlip(this.parentNode.parentNode)'>Back to front</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function cardFlip(e) {
+
+            var innerCard = e;
+            // innerCard.toggle('flipped');
+            if (innerCard.classList.contains('flipped')) {
+                innerCard.classList.remove('flipped')
+            } else {
+                innerCard.classList.add('flipped');
+            }
+
+        }
+    </script>
+
+
+
+
+    <!--
+                        <div id="m4" class="mem row div-right">
+                    <div class=" col-lg-6  col-sm-12">
+                        <p class="Bio">Hello, my name is Sebastian. This will be the beginning of my senior year here at
+                            FAU majoring in Computer Science. I love technology and try my best when learning new skills
+                            that deal with it, in my free time I enjoy video games, drawing, and outdoor activities such
+                            as fishing. I even have been trying to learn about video game design in my own free time. If
+                            you wish to some of the projects I have done check out my website.<a
+                                href="https://lamp.cse.fau.edu/~tcharitable2018/">Click Here</a></p>
+                    </div>
+                    <div class=" col-lg-6  col-sm-12">
+                        Sebastian Nunez<br><img src="./img/Sebastian.jpg"></img> </div>
+                </div>
+
+        
+
+    <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="./img/aaron_photo.png" alt="Avatar" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <h1>John Doe</h1>
+            <p>Architect & Engineer</p>
+            <p>We love that guy</p>
+          </div>
+        </div>
+      </div> -->
+
+    <!-- 
+
+    <h1 id="Intro" class="Bio">Meet our team members!<h1>
+
+            <div id="Bio_Bubble" class="container-fluid">
+                <div id="m1" class="mem row div-left Top_Bio">
+                    <div class=" col-lg-6  col-sm-12">
+                        Aaron Shahriari<br><img src="./img/aaron_photo.png"></img>
+                    </div>
+                    <div class="col-lg-6  col-sm-12">
+                        <p class="Bio">How's it going!! My name is Aaron and this year will be my senior year at FAU. I
+                            transferred her after my freshmen year to play football. I still play football here at FAU
+                            and am getting my bachelors degree in Computer Science. I thoroughly enjoy programming and
+                            learning new programming languages and the best ways to use them. In Spring 2021 I built a
+                            website for my Internet Computing class and if you would like to check it out click <a
+                                href="https://lamp.cse.fau.edu/~ashahriari2019/">here.</a></p>
+
+                    </div>
+                </div>
+
+                <div id="m2" class="mem row div-right">
+                    <div class="col-lg-6  col-sm-12">
+                        <p class="Bio">Hello, my name is Juan and I'm a 3rd year Computer Science student here at
+                            Florida Atlantic University. I have a great interest in learning about technology and the
+                            ever advancing field of computer programming. I also enjoy hiking, camping, and playing
+                            video games. If you'd like to check some of the sites I've made so far <a
+                                href="https://lamp.cse.fau.edu/~jmerlosjr2017/">Click Here.</a></p>
+                    </div>
+                    <div class="col-lg-6  col-sm-12">
+                        Juan Merlos Jr.<br><img src="./img/juan1.png"></img> </div>
+                </div>
+
+                <div id="m3" class="mem row div-left">
+                    <div class="col-lg-6  col-sm-12">
+                        Nathaniel Martin<br><img src="./img/NatePic.png.jpg"></img></div>
+                    <div class=" col-lg-6  col-sm-12">
+                        <p class="Bio">Hi I am Nate and this is my 3rd year at FAU. I love to mess around with
+                            technology and work with others on projects. I spend most of my freetime playing video games
+                            or volleyball! If you want to know more about me and see what projects I have worked on in
+                            the pass check out my website: <a href="https://lamp.cse.fau.edu/~nathanielmar2019/">My
+                                Website</a></p>
+                    </div>
+                </div>
+
+                <div id="m4" class="mem row div-right">
+                    <div class=" col-lg-6  col-sm-12">
+                        <p class="Bio">Hello, my name is Sebastian. This will be the beginning of my senior year here at
+                            FAU majoring in Computer Science. I love technology and try my best when learning new skills
+                            that deal with it, in my free time I enjoy video games, drawing, and outdoor activities such
+                            as fishing. I even have been trying to learn about video game design in my own free time. If
+                            you wish to some of the projects I have done check out my website.<a
+                                href="https://lamp.cse.fau.edu/~tcharitable2018/">Click Here</a></p>
+                    </div>
+                    <div class=" col-lg-6  col-sm-12">
+                        Sebastian Nunez<br><img src="./img/Sebastian.jpg"></img> </div>
+                </div>
+
+                <div id="m5" class="mem row div-left Bottom_Bio">
+                    <div class=" col-lg-6  col-sm-12">
+                        Terrence Charitable<br><img src="./img/terrence.jpg"></img></div>
+                    <div class=" col-lg-6  col-sm-12">
+                        <p class="Bio">Hello, my name is Terrence Charitable and I'm a junior undergrad at FAU. I enjoy
+                            working on personal projects whether its coding or using various editing softwares such as
+                            Photoshop, Illustrator, and Premiere. If you would like to see my personal lamp server you
+                            can <a href="https://lamp.cse.fau.edu/~nunezs2018/">Click Here</a></p>
+                    </div>
+                </div>
+            </div> -->
+
+</body>
+<!-- <footer class="container2-fluid text-center">
+    <p2>Group 4</p>
+</footer> -->
+
+</html>

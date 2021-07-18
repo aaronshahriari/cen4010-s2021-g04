@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="./css/browse.css" />
+    <script src="./js/browse.js"></script>
+
+
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="home.html" id="passivelink"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li class="active"><a href="browse.html" id="activelink">Browse</a></li>
+                    <li><a href="index.html" id="passivelink">Social</a></li>
+                    <li><a href="members.html" id="passivelink">About</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">My <span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <p id="pagetitle">Browse</p>
+    </header>
+
+    <h1>Filters</h1>
+
+    <div id="FilterContainer" class="row">
+            <div id="CheckBoxFilter" class="col-lg-4  col-sm-6">
+                <form action=""><!--Link to data filter-->
+                    <input type="checkbox" id="Location" name="Location" value="Outdoors">
+                    <label for="Location"> Outdoors</label><br>
+                    <input type="checkbox" id="Free" name="Free" value="Free">
+                    <label for="Free"> No Cost</label><br>
+                    <input type="checkbox" id="Covid" name="Covid" value="CovidSafe">
+                    <label for="Covid"> Covid Safe</label><br>
+                    <input type="checkbox" id="Covid" name="Covid" value="CovidSafe">
+                    <label for="Covid"> Covid Safe</label><br>
+                    <input type="checkbox" id="Covid" name="Covid" value="CovidSafe">
+                    <label for="Covid"> Covid Safe</label><br><br>
+                    <input id="SubmitData" type="submit" value="Submit">
+                  </form>
+             </div>
+            <div id= "DateFilter" class="col-lg-4  col-sm-6">
+                <form action="">
+                    <label for="Date">Date:</label>
+                    <input type="date" id="date" name="date">
+                    <input id="SubmitData" type="submit" value="Submit">
+                  </form> 
+            </div>
+            <div class="col-lg-4  col-sm-12">
+                
+                  
+                    </script>
+                    <div id="googleMap" style="width:100%;height:400px;"></div>
+
+                    <script>
+                    function myMap() {
+                    var mapProp= {
+                      center:new google.maps.LatLng(26.3750, 80.1011),
+                      zoom:5,
+                    };
+                    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                    }
+                    </script>
+                    
+                    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+            </div>
+    </div>
+    <div id="FilterResults" class ="Row">
+        <h1>Results</h1>
+        <div id ="Photo" class= "col-lg-3  col-sm-6">
+        PHOTO
+        </div>
+        <div id ="Name" class= "col-lg-3  col-sm-6">
+        NAME/RATING
+        </div>
+        <div id ="Info" class= "col-lg-3  col-sm-6">
+        INFO
+        </div>
+        <div id ="AddEvent" class= "col-lg-3  col-sm-6">
+        ADD EVENT
+        </div>
+
+
+    </div>
+                    
+</body>
+
+                
+            </div>
+    </div>
+    <!--Source: Original Button Design "David Connor" from codepen.io/davidicus/-->
+    <br />
+    <br />
+
+
+</body>
+</html>
