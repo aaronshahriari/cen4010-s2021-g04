@@ -41,7 +41,7 @@
         }
 
         body {
-            background-color: var( --bodyColor);
+            background-color: var(--bodyColor);
             text-align: center;
             height: 100%;
             margin: 0;
@@ -101,7 +101,8 @@
     
 }*/
         #main1 {
-            background-color: var( --bodyColor);;
+            background-color: var(--bodyColor);
+            ;
             height: 900px;
         }
 
@@ -229,7 +230,8 @@
         #FilterContainer {
             margin-left: 5%;
             margin-right: 5%;
-            margin-bottom: 3%;
+            margin-bottom: 2%;
+            padding-bottom: 7%;
             text-align: left;
             font-family: Helvetica;
             letter-spacing: 0.2em;
@@ -238,7 +240,7 @@
             color: white;
             outline: 3px solid;
             outline-color: #A0A0A0;
-            outline-offset: 50px;
+            outline-offset: 10px;
         }
 
         #SubmitData {
@@ -260,11 +262,10 @@
 
         #FilterResults {
 
-            margin-top: 10%;
             margin-left: 5%;
             margin-right: 5%;
             margin-bottom: 3%;
-            padding-bottom: 3%;
+            margin-top: 5%;
             text-align: left;
             font-family: Helvetica;
             letter-spacing: 0.2em;
@@ -273,7 +274,17 @@
             color: white;
             outline: 3px solid;
             outline-color: #A0A0A0;
-            outline-offset: 50px;
+            outline-offset: 10px;
+        }
+
+        #FilterR {
+            font-size: 25px;
+            color: white;
+            font-family: Helvetica;
+        }
+
+        #Info {
+            padding-top: 15px;
         }
 
         #SearchBar {
@@ -318,7 +329,7 @@
 
     <div id="FilterContainer" class="row">
         <div id="CheckBoxFilter" class="col-lg-4  col-sm-6">
-            <form method="POST" action="./php/Filter.php">
+            <form method="POST">
                 <!--Link to data filter-->
                 <input type="checkbox" id="Location" name="Location" value="Outdoors">
                 <label for="Location"> Outdoors</label><br>
@@ -360,21 +371,50 @@
             <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
         </div>
     </div>
-    <div id="FilterResults" class="Row">
-        <h1>Results</h1>
-        <div id="Photo" class="col-lg-3  col-sm-6">
-            PHOTO
-        </div>
-        <div id="Name" class="col-lg-3  col-sm-6">
-            NAME/RATING
-        </div>
-        <div id="Info" class="col-lg-3  col-sm-6">
-            INFO
-        </div>
-        <div id="AddEvent" class="col-lg-3  col-sm-6">
-            ADD EVENT
-        </div>
+    <div id="FilterResults" class="row">
 
+        <h1>Results</h1>
+        <div id="Info" class="col-lg-12">
+            <?php
+            $server = "localhost";
+            $username = "cen4010_su21_g04";
+            $password = "Eg1gNbkNpe";
+            $dbname = "cen4010_su21_g04";
+
+            $conn = mysqli_connect($server, $username, $password, $dbname);
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                if (!empty($_POST['SearchF'])) {
+
+                    $item = $_POST['SearchF'];
+
+                    $sql = "SELECT EN,EL,ESD,EED  FROM Events";
+                    $resultA = $conn->query($sql);
+
+                    if ($resultA->num_rows > 0) {
+                        while ($row = $resultA->fetch_assoc()) {
+
+                            if (substr_count(strtolower($row["EN"]), strtolower($item))) {
+                                echo "<div id='FilterResults' class = 'row'>";
+                                echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Event Name: " . "<div id='FilterR'>" . $row["EN"]  . "</div></div>";
+                                echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Event Location: " . "<div id='FilterR'>" . $row["EL"]  . "</div></div>";
+                                echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Event Start: " . "<div id='FilterR'>" . $row["ESD"]  . "</div></div>";
+                                echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Event End: " . "<div id='FilterR'>" . $row["EED"]  . "</div></div>";
+                                echo "</div>";
+                            }
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                }
+            }
+            //else{
+            // echo "put some info in der";
+            //}
+
+            ?>
+        </div>
 
     </div>
 

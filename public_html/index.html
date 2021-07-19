@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- Google Signin -->
+    <meta name='google-signin-client_id' content='1084043775881-4ls331bisg1gcnpb1uev003uhsm529rb.apps.googleusercontent.com'>
+    <script src='https://apis.google.com/js/platform.js' async defer></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -19,6 +23,8 @@
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/login.css">
 
+    <!-- Navbar JS -->
+    <script src='./js/navbar.js'></script>
 
     <!-- Personal JS -->
     <script src="./js/index.js"></script>
@@ -32,18 +38,56 @@
 </head>
 
 <body>
-
+    <div class='nav-copy'></div>
     <h2>Modal Login Form</h2>
 
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Signup</button>
+
+
+
+
+    <script>
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            console.log(gapi.auth2.getAuthInstance());
+            auth2.signOut().then(function() {
+                console.log('User signed out.');
+            });
+            console.log(gapi.auth2.getAuthInstance());
+
+        }
+
+        function onSignIn(googleUser) {
+
+            var id_token ='idToken='+ googleUser.getAuthResponse().id_token;
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('First Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://lamp.cse.fau.edu/~cen4010_su21_g04/php/signup.php');
+            // xhr.open('POST', 'https://oauth2.googleapis.com/tokeninfo?id_token='+ id_token);
+
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                console.log('Signed in as: ' + xhr.responseText);
+            };
+            xhr.send(id_token);
+        }
+    </script>
+
+    <button class="g-signin2" data-onsuccess="onSignIn" style="width:auto;"></button>
+    <button onclick="signOut();" style="width:auto;">Signout</button>
+
+    <!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Signup</button> -->
 
     <div id="id01" class="modal">
 
         <form class="modal-content animate" action="./php/login.php" method="post">
             <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                    title="Close Modal">&times;</span>
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <!-- <img src="avatar.png" alt="Avatar" class="avatar"> -->
             </div>
 
@@ -61,8 +105,7 @@
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                    class="cancelbtn">Cancel</button>
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                 <span class="psw">Forgot <a href="#">password?</a></span>
             </div>
         </form>
@@ -72,8 +115,7 @@
 
         <form class="modal-content animate" action="./php/signup.php" method="post">
             <div class="imgcontainer">
-                <span onclick="document.getElementById('id02').style.display='none'" class="close"
-                    title="Close Modal">&times;</span>
+                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <img src="./img/avatar.png" alt="Avatar" class="avatar">
             </div>
 
@@ -118,8 +160,7 @@
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id02').style.display='none'"
-                    class="cancelbtn">Cancel</button>
+                <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
                 <span class="psw">Forgot <a href="#">password?</a></span>
             </div>
         </form>
@@ -131,7 +172,7 @@
         var modal2 = document.getElementById('id02');
 
         // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
+        window.onclick = function(event) {
             if (event.target == modal1 || event.target == modal2) {
                 modal1.style.display = "none";
                 modal2.style.display = "none";
@@ -141,17 +182,16 @@
     <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
         <a class="navbar-brand" href="index.html"><img id="logo" src="sitelogo1a.png"></a>
     </nav> -->
-    <div class="nav-copy"></div>
-
 
     <br />
     <p>This will be sign in page</p>
     <a href="./home.html">On Correct Sign in</a>
-    <h1><span class="glyphicon glyphicon-info-sign" id="sign"></span> TEMPORARY DEVELOPER NOTE: EVERYONE PLEASE USE BOOTSTRAP 3.4.1</h1>
+    <h1><span class="glyphicon glyphicon-info-sign" id="sign"></span> TEMPORARY DEVELOPER NOTE: EVERYONE PLEASE USE
+        BOOTSTRAP 3.4.1</h1>
     <p>Without it the nav bar will not work</p>
     <p>link: https://getbootstrap.com/docs/3.4/getting-started/ </p>
     <style>
-        #sign{
+        #sign {
             color: yellow;
             font-size: 150%;
             vertical-align: middle;

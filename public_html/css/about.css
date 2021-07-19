@@ -8,6 +8,13 @@ body{
 
 }
 
+.box {
+    width: 1000px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+}
+
 .name{
   color: var(--primaryColor);
   font-size: 25px;
