@@ -11,7 +11,7 @@
         }
         
         /* Set a style for all buttons */
-        button {
+        nav button {
           background-color: #001e81;
           color: white;
           padding: 14px 20px;

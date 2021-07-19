@@ -4,7 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <title>Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Signin -->
+    <meta name='google-signin-client_id'
+        content='1084043775881-4ls331bisg1gcnpb1uev003uhsm529rb.apps.googleusercontent.com'>
+    <script src='https://apis.google.com/js/platform.js' async defer></script>
  
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -24,6 +27,8 @@
     <!-- Personal CSS -->
     <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="./css/slideshow.css" />
+    <link rel="stylesheet" href="./css/login.css">
+
 
     <!-- Navbar JS -->
     <script src='./js/navbar.js'></script>
@@ -32,6 +37,7 @@
 </head>
 <body>
     <div class = 'nav-copy'></div>
+    
     
     <section id="slideshowsec">
         <div class="container">
@@ -97,6 +103,8 @@
         <br />
         <br />
     </section>
+    <div class="g-signin2" style="visibility: hidden"></div>
+
     <footer class="container-fluid text-center">
         <p id="foottext">Site created by students attending <strong>Florida Atlantic University</strong> find out more <a href="about.html">here</a></p>
     </footer>

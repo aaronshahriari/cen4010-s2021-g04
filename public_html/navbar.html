@@ -1,4 +1,106 @@
 <nav class="navbar navbar-inverse">
+
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script src='https://apis.google.com/js/platform.js' async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script> 
+
+    <script>
+        // Get the modal
+        var modal1 = document.getElementById('id01');
+        var modal2 = document.getElementById('id02');
+
+        var profile1 = document.getElementById('profile1');
+        var profile2 = document.getElementById('profile2');
+
+        function onLoad() {
+            gapi.load('auth2', function () {
+                gapi.auth2.init();
+            });
+        }
+
+        var GoogleAuth = gapi.auth2.getAuthInstance();
+        GoogleAuth.isSignedIn.listen((e) => {
+            if (e) {
+                profile1.innerHTML = "<a href='profile.html'>My <span class='glyphicon glyphicon-user'></span> Profile</a>";
+                profile2.innerHTML = "<a onclick='signOut();'style='width:auto;'>Signout <span class='glyphicon glyphicon-log-out'></span></a>";
+                console.log(e);
+            } else {
+                profile1.innerHTML = "<a onclick=\"displayLogin('id01')\" style='width:auto;'>Login <span class='glyphicon glyphicon-log-in'></span></a>";
+                profile2.innerHTML = "<a onclick=\"displayLogin('id01')\" style='width:auto;'>Signup </a>";
+                console.log(e);
+            }
+        })
+
+        function displayLogin(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal1 || event.target == modal2) {
+                modal1.style.display = "none";
+                modal2.style.display = "none";
+            }
+        }
+        function onSuccess(googleUser) {
+            if (GoogleAuth.isSignedIn.get()) {
+                profile1.innerHTML = "<a href='profile.html'>My <span class='glyphicon glyphicon-user'></span> Profile</a>";
+                profile2.innerHTML = "<a onclick='signOut();'style='width:auto;'>Signout <span class='glyphicon glyphicon-log-out'></span></a>";
+                console.log(GoogleAuth.isSignedIn.get());
+            } else {
+                profile1.innerHTML = "<a onclick=\"displayLogin('id01')\" style='width:auto;'>Login <span class='glyphicon glyphicon-log-in'></span></a>";
+                profile2.innerHTML = "<a onclick=\"displayLogin('id01')\" style='width:auto;'>Signup </a>";
+                console.log(GoogleAuth.isSignedIn.get());
+            }
+
+
+            modal1.style.display = "none";
+            modal2.style.display = "none";
+            var id_token = 'idToken=' + googleUser.getAuthResponse().id_token;
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('First Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://lamp.cse.fau.edu/~cen4010_su21_g04/php/signup.php');
+            // xhr.open('POST', 'https://oauth2.googleapis.com/tokeninfo?id_token='+ id_token);
+
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function () {
+                console.log('Signed in as: ' + xhr.responseText);
+            };
+            xhr.send(id_token);
+        }
+        function onFailure(error) {
+            console.log(error);
+        }
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            console.log(gapi.auth2.getAuthInstance());
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+            console.log(gapi.auth2.getAuthInstance());
+
+        }
+        function renderButton() {
+            gapi.signin2.render('my-signin2', {
+                'scope': 'profile email',
+                // 'width': '100%',
+                'height': 50,
+                // 'color': white,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+            });
+            document.getElementById('my-signin2').firstChild.style.width = '100%';
+            document.getElementById('my-signin2').firstChild.style.backgroundColor = '#001e81';
+        }
+    </script>
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -14,23 +116,100 @@
                 <li><a href="social.html" id="passivelink">Social</a></li>
                 <li><a href="about.html" id="passivelink">About</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="profile.html">My <span class="glyphicon glyphicon-user"></span> Profile</a></li>
-            </ul>
-<!-- 
+
             <div class="dropdown nav navbar-nav navbar-right">
-                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><a href="profile.html">My <span class="glyphicon glyphicon-user"></span> Profile</a>
+                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><a href="profile.html">My <span
+                            class="glyphicon glyphicon-user"></span> Profile</a>
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="profile.html">My <span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                    <li><a href="#"><div class="g-signin2" data-onsuccess="onSignIn"></div></a></li>
-                    <li><a href="#">CSS</a></li>
-                    <li><a href="#">JavaScript</a></li>
+                    <li id='profile1'><a onclick="document.getElementById('id01').style.display='block'"
+                            style="width:auto;">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+                    <li id='profile2'><a onclick="document.getElementById('id02').style.display='block'"
+                            style="width:auto;">Signup </a></li>
                 </ul>
             </div>
-             -->
-
 
         </div>
     </div>
+    <div id="id01" class="modal">
+
+        <form class="modal-content animate" action="./php/login.php" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <!-- <img src="avatar.png" alt="Avatar" class="avatar"> -->
+            </div>
+
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit">Login</button>
+                <div style="width: 100%;" id="my-signin2"></div>
+                <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+
+
+                <!-- <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label> -->
+
+            </div>
+        </form>
+    </div>
+
+    <div id="id02" class="modal">
+
+        <form class="modal-content animate" action="./php/signup.php" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <img src="./img/avatar.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <div class='row'>
+                    <div class='col'>
+                        <label for="fname"><b>First Name</b></label>
+                        <input type="text" placeholder="Enter First name" name="fname" required>
+                    </div>
+                    <div class='col'>
+                        <label class='col' for="lname"><b>Last Name</b></label>
+                        <input type="text" placeholder="Enter Last name" name="lname" required>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" name="email" required>
+                    </div>
+                    <div class='col'>
+                        <label for="pnumber"><b>Phone Number</b></label>
+                        <input type="text" placeholder="Enter Phone Number" name="pnumber" required>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                    </div>
+                </div>
+                <button type="submit">Signup</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+
+        </form>
+    </div>
+
 </nav>
