@@ -1,4 +1,7 @@
 <nav class="navbar navbar-inverse">
+    <script>
+        
+    </script>
 
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <script src='https://apis.google.com/js/platform.js' async defer></script>
@@ -12,6 +15,8 @@
 
         var profile1 = document.getElementById('profile1');
         var profile2 = document.getElementById('profile2');
+        var navProf = document.getElementById('navProf');
+
 
         // function onLoad() {
         //     gapi.load('auth2', function () {
@@ -20,20 +25,25 @@
         //     console.log('')
         // }
         var GoogleAuth = gapi.auth2.getAuthInstance();
+        // var pic = GoogleAuth.getBasicProfile().getImageUrl();
 
         // var hi = 'dkjfslkjf';
 
-        GoogleAuth.isSignedIn.listen((e) => {
-            if (e) {
-                profile1.innerHTML = "<a href='profile.html'>My <span class='glyphicon glyphicon-user'></span> Profile</a>";
-                profile2.innerHTML = "<a onclick='signOut();'style='width:auto;'>Signout <span class='glyphicon glyphicon-log-out'></span></a>";
-                console.log(e);
-            } else {
-                profile1.innerHTML = "<a onclick=\"displayLogin('id01')\" style='width:auto;'>Login <span class='glyphicon glyphicon-log-in'></span></a>";
-                profile2.innerHTML = "<a onclick=\"displayLogin('id01')\" style='width:auto;'>Signup </a>";
-                console.log(e);
-            }
-        })
+        // GoogleAuth.isSignedIn.listen((e) => {
+        //     if (e) {
+        //         var GoogleAuth = gapi.auth2.getAuthInstance();
+        // var pic = GoogleAuth.getBasicProfile().getImageUrl();
+        //         // navProf.innerHTML= "<img src =" + pic +"()>My <span class='glyphicon glyphicon-user'></span> Profile";
+        //         profile1.innerHTML = "<a href='profile.html'>My <span class='glyphicon glyphicon-user'></span> Profile</a>";
+        //         profile2.innerHTML = "<a onclick='signOut();'style='width:auto;'>Signout <span class='glyphicon glyphicon-log-out'></span></a>";
+        //         console.log(e);
+        //     } else {
+        //         navProf.innerHTML = "Login <span class='glyphicon glyphicon-log-in'></span>";
+        //         profile1.innerHTML = "<a onclick=\"displayLogin('id01')\" style='width:auto;'>Login <span class='glyphicon glyphicon-log-in'></span></a>";
+        //         profile2.innerHTML = "<a onclick=\"displayLogin('id01')\" style='width:auto;'>Signup </a>";
+        //         console.log(e);
+        //     }
+        // })
 
         function displayLogin(id) {
             document.getElementById(id).style.display = 'block';
@@ -47,13 +57,15 @@
             }
         }
         function onSuccess(googleUser) {
+            // var GoogleAuth = gapi.auth2.getAuthInstance();
             if (GoogleAuth.isSignedIn.get()) {
+                var pic = googleUser.getBasicProfile().getImageUrl();
+                var name = googleUser.getBasicProfile().getGivenName();
+                console.log(pic);
+                // navProf.innerHTML= "My <span class='glyphicon glyphicon-user'></span> Profile";
+                navProf.innerHTML = "<img src =" + pic + "> " + name;
                 profile1.innerHTML = "<a href='profile.html'>My <span class='glyphicon glyphicon-user'></span> Profile</a>";
                 profile2.innerHTML = "<a onclick='signOut();'style='width:auto;'>Signout <span class='glyphicon glyphicon-log-out'></span></a>";
-                console.log(GoogleAuth.isSignedIn.get());
-            } else {
-                profile1.innerHTML = "<a onclick=\"displayLogin('id01')\" style='width:auto;'>Login <span class='glyphicon glyphicon-log-in'></span></a>";
-                profile2.innerHTML = "<a onclick=\"displayLogin('id01')\" style='width:auto;'>Signup </a>";
                 console.log(GoogleAuth.isSignedIn.get());
             }
 
@@ -83,11 +95,15 @@
 
         function signOut() {
             var auth2 = gapi.auth2.getAuthInstance();
-            console.log(gapi.auth2.getAuthInstance());
             auth2.signOut().then(function () {
                 console.log('User signed out.');
+                if (!auth2.isSignedIn.get()) {
+                    navProf.innerHTML = "Login <span class='glyphicon glyphicon-log-in'></span>";
+                    profile1.innerHTML = "<a onclick=\"displayLogin('id01')\" style='width:auto;'>Login <span class='glyphicon glyphicon-log-in'></span></a>";
+                    profile2.innerHTML = "<a onclick=\"displayLogin('id02')\" style='width:auto;'>Signup </a>";
+                    // location.reload();
+                }
             });
-            console.log(gapi.auth2.getAuthInstance());
 
         }
         function renderButton() {
@@ -115,15 +131,15 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav nav-links">
-                <li><a href="index.html" ><span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a href="browse.html" >Browse</a></li>
-                <li><a href="social.html" >Social</a></li>
-                <li><a href="about.html" >About</a></li>
+                <li><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li><a href="browse.html">Browse</a></li>
+                <li><a href="social.html">Social</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
 
             <div class="dropdown nav navbar-nav navbar-right">
-                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><a href="profile.html">My <span
-                            class="glyphicon glyphicon-user"></span> Profile</a>
+                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span id='navProf'>My <span
+                            class="glyphicon glyphicon-user"></span> Profile</span>
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                     <li id='profile1'><a onclick="document.getElementById('id01').style.display='block'"

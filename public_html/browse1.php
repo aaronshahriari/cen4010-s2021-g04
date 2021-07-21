@@ -232,16 +232,20 @@
             margin-left: 5%;
             margin-right: 5%;
             margin-bottom: 2%;
-            padding-bottom: 7%;
+            padding:25px;
+            text-align: left;
+            background-color:#A0A0A0 ;
             text-align: left;
             font-family: Helvetica;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.1em;
             font-weight: 300;
-            font-size: 32px;
+            font-size: 35px;
             color: white;
-            outline: 15px solid;
+            border-radius: 10px;
+            box-shadow: 20px 20px 2px green;
+            /*outline: 15px solid;
             outline-color: green;
-            outline-offset: 10px;
+            outline-offset: 10px;*/
         }
 
         #SubmitData {
@@ -273,9 +277,9 @@
             font-weight: 300;
             font-size: 35px;
             color: white;
-            outline: 15px solid;
+            /*outline: 15px solid;
             outline-color: green;
-            outline-offset: 10px;
+            outline-offset: 10px;*/
             
         }
         #FilterResultsInner{
@@ -283,23 +287,30 @@
             margin-left: 5%;
             margin-right: 5%;
             margin-bottom: 3%;
-            margin-top: 5%;
+            margin-top: 3%;
+            padding:25px;
+            /*padding-top:5px;
+            padding-bottom:5px;*/
+            background-color:#A0A0A0 ;
             text-align: left;
             font-family: Helvetica;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.1em;
             font-weight: 300;
             font-size: 35px;
             color: white;
-            outline: 15px solid;
-            outline-color: #A0A0A0;
-            outline-offset: 10px;
+            border-radius: 10px;
+            box-shadow: 10px 5px 2px green;
+            /*outline: 7px solid;
+            outline-color: green;
+            outline-offset: 8px;
+            outline-: 10px;*/
 
         }
 
         #FilterR {
             font-size: 35px;
             color: white;
-            font-family: Helvetica;
+            font-family: 'Noto Sans', sans-serif;
         }
 
         #Info {
@@ -307,16 +318,17 @@
         }
 
         #SearchBar {
-            background-color: #A0A0A0;
+            background-color: white;
         }
         #MapContainter{
            padding-top: 100px;
            
         }
         #map{
-            outline: 10px solid;
+            /*outline: 10px solid;
             outline-color: #A0A0A0;
-            outline-offset: 10px;
+            outline-offset: 10px;*/
+            border-radius:10px;
         }
         #CheckBoxFilter{
             margin-top: 7%;
@@ -450,10 +462,10 @@
 
                             if (substr_count(strtolower($row["EN"]), strtolower($item))) {
                                 echo "<div id='FilterResultsInner' class = 'row'>";
-                                echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Event Name: " . "<div id='FilterR'>" . $row["EN"]  . "</div></div>";
-                                echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Event Location: " . "<div id='FilterR'>" . $row["EL"]  . "</div></div>";
-                                echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Event Start: " . "<div id='FilterR'>" . $row["ESD"]  . "</div></div>";
-                                echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Event End: " . "<div id='FilterR'>" . $row["EED"]  . "</div></div>";
+                                echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> " . "<div id='FilterR'>" . $row["EN"]  . "</div></div>";
+                                echo "<div id='FilterR' class = 'col-lg-6  col-sm-6'> Event Location: " . "<div id='FilterR'>" . $row["EL"]  . "</div></div>";
+                                echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Start: " . $row["ESD"]. "<br> End: " . $row["EED"]  . "</div>";
+                                
                                 echo "</div>";
                             }
                         }
