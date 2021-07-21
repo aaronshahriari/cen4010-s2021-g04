@@ -17,7 +17,7 @@ body {
     text-align: center;
 }
 .box {
-    width: 1000px;
+    width: 1600px;
     border: 15px solid green;
     padding: 50px;
     margin: 20px;
@@ -26,27 +26,25 @@ body {
     margin-bottom: 0;
     border-radius: 0;
 }
-#activelink {
+/* .active {
     color: var( --main_color);
     font-weight: bolder;
     font-family: 'Noto Sans', sans-serif;
-}
-#passivelink {
+} */
+/* #passivelink {
+        color: var( --main_color);
+
     font-family: 'Noto Sans', sans-serif;
-}
+} */
 
 #maintext {
     color: #909090;
-    font-size: 15px;
+    font-size: 28px;
     font-family: 'Noto Sans', sans-serif;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     width: 75%;
-    width: 300px;
-    border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
 }
 h1 {
     font-family: 'Noto Sans', sans-serif;
@@ -110,17 +108,53 @@ footer {
 #foottext{
     text-align: left;
 }
-a{
+footer a{
     color:var( --main_color);
 }
 
 a:hover {
     color: var(--secondary_color);
 }
-    a:visited {
+    /* a:visited {
         color: var( --main_color);
-    }
+    } */
     a:active {
         color: var( --main_color);
     }
-  
+
+
+.grid {
+    margin: 20px auto;
+    width: 2500px;
+    height: 1600px;
+    display: grid;
+    grid-template-columns: 1150px 1150px;
+    grid-row: auto auto;
+    grid-column-gap: 125px;
+    grid-row-gap: 20px;
+    border: 15px solid green;
+    padding: 20px;
+    margin: 20px;
+}
+
+.square {
+    background-color: #333;
+    border-radius: 10px;
+    border: 15px solid green;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buddybox {
+    width: 2500px;
+    height: 800px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -4,7 +4,7 @@
 }
 
 body{
-  background-color: #202020;
+  background-color: #101010;
 
 }
 
@@ -54,11 +54,18 @@ button {
 }
 
 
-
+@keyframes key1{
+from{opacity:0;}
+to{}
+}
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
+
+  /* border-radius: 55px; */
+  /* height: auto;
+  width: 25%; */
   /*
   background-color: transparent;
   width: 300px;
@@ -80,6 +87,8 @@ button {
 
 /* This container is needed to position the front and back side */
 .flip-card-inner {
+
+  
   transform-style: preserve-3d;
   display: flex;
   align-items: stretch;
@@ -89,6 +98,8 @@ button {
 }
 
 .crop{
+
+
   width: 100%;
   background-color: var(--secondaryColor);
   height: 175px;
@@ -103,6 +114,7 @@ button {
 
 /* Position the front and back side */
 .flip-card-front, .flip-card-back {
+
   /* top: 50px; */
   width: 100%;
   flex: 0 0 auto;
@@ -114,6 +126,9 @@ button {
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
+  animation-name: key1;
+  animation-duration: 3s;
+
   background-color: #bbb;
   color: black;
 }

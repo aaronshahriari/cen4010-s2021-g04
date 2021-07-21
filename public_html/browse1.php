@@ -64,7 +64,7 @@
         }
 
         header {
-            background-image: url("../slideimgs/windmill.jpg");
+            background-image: url("./slideimgs/windmill.jpg");
             background-attachment: fixed;
             background-repeat: repeat-x;
             height: 50vh;
@@ -126,6 +126,7 @@
             font-weight: bolder;
             color: lime;
             text-align: center;
+            padding-bottom:5%;
         }
 
         strong {
@@ -165,7 +166,7 @@
         .button:hover span {
             padding-right: 25px;
         }
-
+        
         .button:hover span:after {
             opacity: 1;
             right: 0;
@@ -238,8 +239,8 @@
             font-weight: 300;
             font-size: 32px;
             color: white;
-            outline: 3px solid;
-            outline-color: #A0A0A0;
+            outline: 15px solid;
+            outline-color: green;
             outline-offset: 10px;
         }
 
@@ -270,15 +271,33 @@
             font-family: Helvetica;
             letter-spacing: 0.2em;
             font-weight: 300;
-            font-size: 32px;
+            font-size: 35px;
             color: white;
-            outline: 3px solid;
+            outline: 15px solid;
+            outline-color: green;
+            outline-offset: 10px;
+            
+        }
+        #FilterResultsInner{
+
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-bottom: 3%;
+            margin-top: 5%;
+            text-align: left;
+            font-family: Helvetica;
+            letter-spacing: 0.2em;
+            font-weight: 300;
+            font-size: 35px;
+            color: white;
+            outline: 15px solid;
             outline-color: #A0A0A0;
             outline-offset: 10px;
+
         }
 
         #FilterR {
-            font-size: 25px;
+            font-size: 35px;
             color: white;
             font-family: Helvetica;
         }
@@ -290,9 +309,28 @@
         #SearchBar {
             background-color: #A0A0A0;
         }
+        #MapContainter{
+           padding-top: 100px;
+           
+        }
+        #map{
+            outline: 10px solid;
+            outline-color: #A0A0A0;
+            outline-offset: 10px;
+        }
+        #CheckBoxFilter{
+            margin-top: 7%;
+        }
     </style>
     <script src="./js/browse.js"></script>
-
+    <style> 
+    
+                #map{
+                    
+                    height:400px;
+                    width:100%;
+                }
+            </style>
 
 
 </head>
@@ -341,7 +379,7 @@
                 <label for="Covid"> Covid Safe</label><br>
 
                 <label for="Covid"> </label><br><br>
-                <input type="text" id="SearchBar" name="SearchF" value="CovidSafe">
+                <input type="text" id="SearchBar" name="SearchF" value="">
                 <input id="SubmitData" type="submit" value="Submit">
             </form>
         </div>
@@ -352,31 +390,38 @@
                 <input id="SubmitData" type="submit" value="Submit">
             </form>
         </div>
-        <div class="col-lg-4  col-sm-12">
-        <style> 
-        #map{
-            height:400px;
-            width:100%;
-        }
-        </style>
+        <div id="MapContainter" class= "col-lg-4  col-sm-12">
+            <div id="map">
+            
         <h1>Location</h1>
-        <div id="map"></div>
         <script>
             function initMap(){
+                //Map options
                 var options ={
-                    zoom:8,
+                    zoom:14,
                     center:{lat:26.3750,lng:- 80.1011}
                 }
 
-                var map = new google.map.Map(document.getElementById('map'), options);
+                //Scripts are to set location and zoom of Google Maps
+                //New Map named X
+                var map = new google.maps.Map(document.getElementById('map'), options);
+                //Add marker
+                var marker = new google.maps.Marker({
+                    position:{lat:26.3750,lng:- 80.1011},
+                    map:map //Adding marker to X map
+                });
+
+
             }
 
         </script>
-
-        <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCghzbEPTIoXqYI07JBsnIKqpWzRGV2I68&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
+        
+        <script async defer
+        
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCghzbEPTIoXqYI07JBsnIKqpWzRGV2I68&callback=initMap&libraries=&v=weekly"
+            
+        > </script>
+            </div>
         </div>
     </div>
     <div id="FilterResults" class="row">
@@ -404,7 +449,7 @@
                         while ($row = $resultA->fetch_assoc()) {
 
                             if (substr_count(strtolower($row["EN"]), strtolower($item))) {
-                                echo "<div id='FilterResults' class = 'row'>";
+                                echo "<div id='FilterResultsInner' class = 'row'>";
                                 echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Event Name: " . "<div id='FilterR'>" . $row["EN"]  . "</div></div>";
                                 echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Event Location: " . "<div id='FilterR'>" . $row["EL"]  . "</div></div>";
                                 echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Event Start: " . "<div id='FilterR'>" . $row["ESD"]  . "</div></div>";

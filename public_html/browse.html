@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title>Home</title>
@@ -24,16 +25,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+
     <!-- Personal CSS -->
     <link rel="stylesheet" href="./css/browse.css" />
+    <link rel="stylesheet" href="./css/login.css">
+
+    <!-- Personal JS -->
     <script src="./js/browse.js"></script>
 
     <!-- Navbar JS -->
     <script src='./js/navbar.js'></script>
 
 </head>
+
 <body>
-    <div class = 'nav-copy'></div>
+    <div class='nav-copy'></div>
 
     <header>
         <p id="pagetitle">Browse</p>
@@ -50,7 +56,7 @@
             <p class="animated-word" onclick="log();">SPORTS</p>
         </div>
         <div class="container">
-            <p class="animated-word" onclick="log();">CUSTOM</p>
+            <p class="animated-word" onclick="log();"><a href='./browse1.php'>CUSTOM</a></p>
         </div>
     </section>
     <!--Source: Original Button Design "David Connor" from codepen.io/davidicus/-->
@@ -60,4 +66,5 @@
     <div class="g-signin2" style="visibility: hidden"></div>
 
 </body>
+
 </html>

@@ -7,6 +7,7 @@
         content='1084043775881-4ls331bisg1gcnpb1uev003uhsm529rb.apps.googleusercontent.com'>
     <script src='https://apis.google.com/js/platform.js' async defer></script>
 
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -26,14 +27,53 @@
     <!-- Personal JS -->
     <script src="./js/index.js"></script>
 
+    <!-- Profile JS -->
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script src="./js/profile.js"></script>
+
     <!-- Navbar JS -->
     <script src='./js/navbar.js'></script>
 </head>
 
 <body>
     <div class='nav-copy'></div>
+
     <div class="g-signin2" style="visibility: hidden"></div>
 
+    <section>
+        <div>
+            <h1>Welcome!</h1>
+            <div class="crop">
+                <img alt="User" style="height: 100%; margin: 0px 0px 0px 0px;">
+            </div>
+            <div class="box">
+                <p>
+                <h2>Who Am I?</h2>
+                Hi my name is <span id='name'></span>. I like camping and beaches! YAY!
+                </p>
+            </div>
+        </div>
+    </section>
+    <br />
+    <br />
+    <br />
+    <section>
+        <div class="active">
+            <h2>Active Events</h2>
+        </div>
+    </section>
+    <br />
+    <br />
+    <br />
+    <section>
+        <div class="passive">
+            <h2>Planned Events</h2>
+        </div>
+    </section>
+
+
 </body>
+
+
 
 </html>

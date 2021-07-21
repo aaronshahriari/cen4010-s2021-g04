@@ -2,9 +2,10 @@
 
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <script src='https://apis.google.com/js/platform.js' async defer></script>
-    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script> 
+    <!-- <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>  -->
 
     <script>
+        var GoogleAuth;
         // Get the modal
         var modal1 = document.getElementById('id01');
         var modal2 = document.getElementById('id02');
@@ -12,13 +13,16 @@
         var profile1 = document.getElementById('profile1');
         var profile2 = document.getElementById('profile2');
 
-        function onLoad() {
-            gapi.load('auth2', function () {
-                gapi.auth2.init();
-            });
-        }
-
+        // function onLoad() {
+        //     gapi.load('auth2', function () {
+        //         gapi.auth2.init();
+        //     });
+        //     console.log('')
+        // }
         var GoogleAuth = gapi.auth2.getAuthInstance();
+
+        // var hi = 'dkjfslkjf';
+
         GoogleAuth.isSignedIn.listen((e) => {
             if (e) {
                 profile1.innerHTML = "<a href='profile.html'>My <span class='glyphicon glyphicon-user'></span> Profile</a>";
@@ -111,10 +115,10 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav nav-links">
-                <li><a href="home.html" id="passivelink"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a href="browse.html" id="passivelink">Browse</a></li>
-                <li><a href="social.html" id="passivelink">Social</a></li>
-                <li><a href="about.html" id="passivelink">About</a></li>
+                <li><a href="index.html" ><span class="glyphicon glyphicon-home"></span></a></li>
+                <li><a href="browse.html" >Browse</a></li>
+                <li><a href="social.html" >Social</a></li>
+                <li><a href="about.html" >About</a></li>
             </ul>
 
             <div class="dropdown nav navbar-nav navbar-right">
@@ -171,21 +175,21 @@
 
             <div class="container">
                 <div class='row'>
-                    <div class='col'>
+                    <div class='col-sm-6'>
                         <label for="fname"><b>First Name</b></label>
                         <input type="text" placeholder="Enter First name" name="fname" required>
                     </div>
-                    <div class='col'>
-                        <label class='col' for="lname"><b>Last Name</b></label>
+                    <div class='col-sm-6'>
+                        <label for="lname"><b>Last Name</b></label>
                         <input type="text" placeholder="Enter Last name" name="lname" required>
                     </div>
                 </div>
                 <div class='row'>
-                    <div class='col'>
+                    <div class='col-sm-6'>
                         <label for="email"><b>Email</b></label>
                         <input type="text" placeholder="Enter Email" name="email" required>
                     </div>
-                    <div class='col'>
+                    <div class='col-sm-6'>
                         <label for="pnumber"><b>Phone Number</b></label>
                         <input type="text" placeholder="Enter Phone Number" name="pnumber" required>
                     </div>
