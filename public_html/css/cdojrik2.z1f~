@@ -162,5 +162,5 @@ a:hover {
 .weather {
     border: 4px dotted blue;
     width: 50%;
-    text-align:centerl
+    text-align:center;
 }

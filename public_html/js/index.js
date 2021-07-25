@@ -1,6 +1,6 @@
 
-function index1(){
-   
+function BrowseGo(){
+    window.location.href = "browse.html";
 
 
 }

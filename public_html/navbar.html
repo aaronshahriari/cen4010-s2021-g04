@@ -5,11 +5,10 @@
 
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <script src='https://apis.google.com/js/platform.js' async defer></script>
-    <!-- <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>  -->
+    <script src="https://apis.google.com/js/platform.js?onload=onLoadNav" async defer></script> 
 
     <script>
-        var GoogleAuth;
-        // Get the modal
+      var GoogleAuth;
         var modal1 = document.getElementById('id01');
         var modal2 = document.getElementById('id02');
 
@@ -18,13 +17,13 @@
         var navProf = document.getElementById('navProf');
 
 
-        // function onLoad() {
-        //     gapi.load('auth2', function () {
-        //         gapi.auth2.init();
-        //     });
-        //     console.log('')
-        // }
-        var GoogleAuth = gapi.auth2.getAuthInstance();
+        function onLoadNav() {
+            gapi.load('auth2', function () {
+                gapi.auth2.init();
+            });
+            console.log('')
+        GoogleAuth = gapi.auth2.getAuthInstance();
+        }
         // var pic = GoogleAuth.getBasicProfile().getImageUrl();
 
         // var hi = 'dkjfslkjf';
@@ -64,7 +63,8 @@
                 console.log(pic);
                 // navProf.innerHTML= "My <span class='glyphicon glyphicon-user'></span> Profile";
                 navProf.innerHTML = "<img src =" + pic + "> " + name;
-                profile1.innerHTML = "<a href='profile.html'>My <span class='glyphicon glyphicon-user'></span> Profile</a>";
+                // profile1.innerHTML = "<a href='profile.html'>My <span class='glyphicon glyphicon-user'></span> Profile</a>";
+                profile1.innerHTML = "<a>My <span class='glyphicon glyphicon-user'></span> Profile</a>";
                 profile2.innerHTML = "<a onclick='signOut();'style='width:auto;'>Signout <span class='glyphicon glyphicon-log-out'></span></a>";
                 console.log(GoogleAuth.isSignedIn.get());
             }
@@ -133,7 +133,8 @@
             <ul class="nav navbar-nav nav-links">
                 <li><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
                 <li><a href="browse.html">Browse</a></li>
-                <li><a href="social.html">Social</a></li>
+                <!-- <li><a href="social.html">Social</a></li> -->
+                <li><a >Social</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
 

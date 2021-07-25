@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom Browse</title>
+    <meta name='google-signin-client_id' content='1084043775881-4ls331bisg1gcnpb1uev003uhsm529rb.apps.googleusercontent.com'>
+    <script src='https://apis.google.com/js/platform.js' async defer></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -22,8 +23,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+
     <!-- Personal CSS -->
-    <!-- <link rel="stylesheet" href="./css/browse.css" /> -->
+    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/login.css">
+
+    <!-- Navbar JS -->
+    <script src='./js/navbar.js'></script>
+
     <style>
         :root {
             --bodyColor: #101010;
@@ -126,7 +133,7 @@
             font-weight: bolder;
             color: lime;
             text-align: center;
-            padding-bottom:5%;
+            padding-bottom: 5%;
         }
 
         strong {
@@ -166,7 +173,7 @@
         .button:hover span {
             padding-right: 25px;
         }
-        
+
         .button:hover span:after {
             opacity: 1;
             right: 0;
@@ -232,9 +239,9 @@
             margin-left: 5%;
             margin-right: 5%;
             margin-bottom: 2%;
-            padding:25px;
+            padding: 25px;
             text-align: left;
-            background-color:#A0A0A0 ;
+            background-color: #A0A0A0;
             text-align: left;
             font-family: Helvetica;
             letter-spacing: 0.1em;
@@ -256,6 +263,10 @@
         #DateFilter {
             margin-top: 7%;
             text-align: center;
+        }
+
+        #DateFilter input {
+            color: black;
         }
 
         #SubmitData:hover {
@@ -280,18 +291,19 @@
             /*outline: 15px solid;
             outline-color: green;
             outline-offset: 10px;*/
-            
+
         }
-        #FilterResultsInner{
+
+        #FilterResultsInner {
 
             margin-left: 5%;
             margin-right: 5%;
             margin-bottom: 3%;
             margin-top: 3%;
-            padding:25px;
+            padding: 25px;
             /*padding-top:5px;
             padding-bottom:5px;*/
-            background-color:#A0A0A0 ;
+            background-color: #A0A0A0;
             text-align: left;
             font-family: Helvetica;
             letter-spacing: 0.1em;
@@ -319,57 +331,97 @@
 
         #SearchBar {
             background-color: white;
+            color: black;
         }
-        #MapContainter{
-           padding-top: 100px;
-           
+
+        #MapContainter {
+            padding-top: 100px;
+
         }
-        #map{
+
+        #map {
             /*outline: 10px solid;
             outline-color: #A0A0A0;
             outline-offset: 10px;*/
-            border-radius:10px;
+            border-radius: 10px;
         }
-        #CheckBoxFilter{
+
+        #CheckBoxFilter {
             margin-top: 7%;
+        }
+
+
+        .slidecontainer {
+            width: 100%;
+            /* Width of the outside container */
+        }
+
+        /* The slider itself */
+        .slider {
+            -webkit-appearance: none;
+            /* Override default CSS styles */
+            appearance: none;
+            width: 100%;
+            /* Full-width */
+            height: 25px;
+            /* Specified height */
+            background: #d3d3d3;
+            /* Grey background */
+            outline: none;
+            /* Remove outline */
+            opacity: 0.7;
+            /* Set transparency (for mouse-over effects on hover) */
+            -webkit-transition: .2s;
+            /* 0.2 seconds transition on hover */
+            transition: opacity .2s;
+        }
+
+        /* Mouse-over effects */
+        .slider:hover {
+            opacity: 1;
+            /* Fully shown on mouse-over */
+        }
+
+        /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            /* Override default look */
+            appearance: none;
+            width: 25px;
+            /* Set a specific slider handle width */
+            height: 25px;
+            /* Slider handle height */
+            background: var(--main_color);
+            /* Green background */
+            cursor: pointer;
+            /* Cursor on hover */
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            /* Set a specific slider handle width */
+            height: 25px;
+            /* Slider handle height */
+            background: var(--main_color);
+            /* Green background */
+            cursor: pointer;
+            /* Cursor on hover */
         }
     </style>
     <script src="./js/browse.js"></script>
-    <style> 
-    
-                #map{
-                    
-                    height:400px;
-                    width:100%;
-                }
-            </style>
+    <style>
+        #map {
+
+            height: 400px;
+            width: 100%;
+        }
+    </style>
 
 
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="home.html" id="passivelink"><span class="glyphicon glyphicon-home"></span></a></li>
-                    <li class="active"><a href="browse.html" id="activelink">Browse</a></li>
-                    <li><a href="index.html" id="passivelink">Social</a></li>
-                    <li><a href="members.html" id="passivelink">About</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.html">My <span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div class='nav-copy'></div>
 
     <header>
         <p id="pagetitle">Browse</p>
@@ -378,62 +430,90 @@
     <h1>Filters</h1>
 
     <div id="FilterContainer" class="row">
-        <div id="CheckBoxFilter" class="col-lg-4  col-sm-6">
-            <form method="POST">
-                <!--Link to data filter-->
-                <input type="checkbox" id="Location" name="Location" value="Outdoors">
-                <label for="Location"> Outdoors</label><br>
-                <input type="checkbox" id="Free" name="Free" value="Free">
-                <label for="Free"> No Cost</label><br>
+        <form method="POST">
+            <!--Link to data filter-->
+            <div id="CheckBoxFilter" class="col-lg-4  col-sm-6">
+                <div class="slidecontainer">
+                    <p>Max Cost: <span id="demo"></span></p>
+                    <input type="range" min="0" max="101" value="0" class="slider" id="costRange" name='costRange'>
+                </div>
+                <input type="checkbox" id="oLocation" name="oLocation" value="Outdoors">
+                <label for="iLocation"> Outdoors</label><br>
+                <input type="checkbox" id="iLocation" name="iLocation" value="Indoors">
+                <label for="oLocation"> Indoors</label><br>
                 <input type="checkbox" id="Campus" name="Campus" value="Campus">
                 <label for="Campus"> Campus Event</label><br>
                 <input type="checkbox" id="Covid" name="Covid" value="CovidSafe">
-                <label for="Covid"> Covid Safe</label><br>
+                <label for="Covid">Mask Required</label><br>
 
                 <label for="Covid"> </label><br><br>
                 <input type="text" id="SearchBar" name="SearchF" value="">
                 <input id="SubmitData" type="submit" value="Submit">
-            </form>
-        </div>
-        <div id="DateFilter" class="col-lg-4  col-sm-6">
-            <form action="">
-                <label for="Date">Date:</label>
-                <input type="date" id="date" name="date">
-                <input id="SubmitData" type="submit" value="Submit">
-            </form>
-        </div>
-        <div id="MapContainter" class= "col-lg-4  col-sm-12">
-            <div id="map">
-            
-        <h1>Location</h1>
-        <script>
-            function initMap(){
-                //Map options
-                var options ={
-                    zoom:14,
-                    center:{lat:26.3750,lng:- 80.1011}
-                }
-
-                //Scripts are to set location and zoom of Google Maps
-                //New Map named X
-                var map = new google.maps.Map(document.getElementById('map'), options);
-                //Add marker
-                var marker = new google.maps.Marker({
-                    position:{lat:26.3750,lng:- 80.1011},
-                    map:map //Adding marker to X map
-                });
-
-
-            }
-
-        </script>
-        
-        <script async defer
-        
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCghzbEPTIoXqYI07JBsnIKqpWzRGV2I68&callback=initMap&libraries=&v=weekly"
-            
-        > </script>
             </div>
+
+            <div id="DateFilter" class="col-lg-4  col-sm-6">
+                <label for="Date">Start Date:</label>
+                <input type="date" id="sdate" name="sdate">
+                <label for="Date">End Date:</label>
+                <input type="date" id="edate" name="edate">
+            </div>
+        </form>
+        <script>
+            var slider = document.getElementById("costRange");
+            var output = document.getElementById("demo");
+            output.innerHTML = '$' + slider.value;
+
+            slider.oninput = function() {
+                output.innerHTML = '$' + this.value;
+                if (this.value == this.max) {
+                    output.innerHTML = '>$100'
+                }
+            }
+        </script>
+
+        <div id="MapContainter" class="col-lg-4  col-sm-12">
+            <div id="map">
+
+                <h1>Location</h1>
+                <script>
+                    function initMap() {
+                        //Map options
+                        var options = {
+                            zoom: 14,
+                            center: {
+                                lat: 26.3750,
+                                lng: -80.1011
+                            }
+                        }
+
+                        //Scripts are to set location and zoom of Google Maps
+                        //New Map named X
+                        var map = new google.maps.Map(document.getElementById('map'), options);
+                        //Add marker
+                        var marker = new google.maps.Marker({
+                            position: {
+                                lat: 26.3750,
+                                lng: -80.1011
+                            },
+                            map: map //Adding marker to X map
+                        });
+
+
+                    }
+                </script>
+
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCghzbEPTIoXqYI07JBsnIKqpWzRGV2I68&callback=initMap&libraries=&v=weekly"> </script>
+            </div>
+            <label for="distance">Max Distance:</label>
+            <select style='color:black;' name="distance" id="distance">
+                <option value=""></option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value=">20">>20</option>
+
+            </select>
         </div>
     </div>
     <div id="FilterResults" class="row">
@@ -447,32 +527,53 @@
             $dbname = "cen4010_su21_g04";
 
             $conn = mysqli_connect($server, $username, $password, $dbname);
-
+            // Every time search
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-                if (!empty($_POST['SearchF'])) {
-
-                    $item = $_POST['SearchF'];
-
-                    $sql = "SELECT EN,EL,ESD,EED  FROM Events";
-                    $resultA = $conn->query($sql);
-
-                    if ($resultA->num_rows > 0) {
-                        while ($row = $resultA->fetch_assoc()) {
-
-                            if (substr_count(strtolower($row["EN"]), strtolower($item))) {
-                                echo "<div id='FilterResultsInner' class = 'row'>";
-                                echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> " . "<div id='FilterR'>" . $row["EN"]  . "</div></div>";
-                                echo "<div id='FilterR' class = 'col-lg-6  col-sm-6'> Event Location: " . "<div id='FilterR'>" . $row["EL"]  . "</div></div>";
-                                echo "<div id='FilterR' class = 'col-lg-3  col-sm-6'> Start: " . $row["ESD"]. "<br> End: " . $row["EED"]  . "</div>";
-                                
-                                echo "</div>";
-                            }
+                //Grabs whatever is in search bar
+                $item = $_POST['SearchF'];
+                
+                //Grabs all events from phpmyadmin
+                $sql = "SELECT EN,EL,ESD,EED,ED  FROM Events";
+                $resultA = $conn->query($sql);
+                
+                //Runs through each event if not empty
+                if ($resultA->num_rows > 0) {
+                    while ($row = $resultA->fetch_assoc()) {
+                        //checks if start date is entered if not it allows any event before current date
+                        if (!empty($_POST['sdate'])) {
+                            $ESD = $_POST['sdate'];
+                            $ESDBool = $ESD < $row['ESD'];
+                        } else {
+                            $ESDBool = true;
                         }
-                    } else {
-                        echo "0 results";
+                        //checks if end date is entered if not it allows any event after current date
+                        if (!empty($_POST['edate'])) {
+                            $EED = $_POST['edate'];
+                            $EEDBool = $EED > $row['EED'];
+                        } else {
+                            $EEDBool = true;
+                        }
+                        //checks if key word is entered then compares to event names and descriptions
+                        if (!empty($_POST['SearchF'])) {
+                            $SearchFBool = substr_count(strtolower($row["EN"]), strtolower($item)) || substr_count(strtolower($row["ED"]), strtolower($item));
+                        } else {
+                            $SearchFBool = true;
+                        }
+
+                        //echos all events matching criteria
+                        if ($SearchFBool && $ESDBool && $EEDBool) {
+                            echo "<div id='FilterResultsInner' class = 'row'>";
+                            echo "<div id='FilterR' class = 'col-lg-4  col-sm-6'> " . "<div id='FilterR'>" . $row["EN"]  . "</div></div>";
+                            echo "<div id='FilterR' class = 'col-lg-4  col-sm-6'> Event Location: " . "<div id='FilterR'>" . $row["EL"]  . "</div></div>";
+                            echo "<div id='FilterR' class = 'col-lg-4  col-sm-6'> Start: " . $row["ESD"] . "<br> End: " . $row["EED"]  . "</div>";
+
+                            echo "</div>";
+                        }
                     }
+                } else {
+                    echo "0 results";
                 }
+                // }
             }
             //else{
             // echo "put some info in der";
@@ -491,6 +592,8 @@
 <!--Source: Original Button Design "David Connor" from codepen.io/davidicus/-->
 <br />
 <br />
+<div class="g-signin2" style="visibility: hidden"></div>
+
 
 
 </body>
