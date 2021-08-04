@@ -1,6 +1,6 @@
 
 :root {
-    --bodyColor: #455463;
+    --bodyColor: #101010;
     --sectFont: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     --sectFontSize: 55px;
     --sectFontColor: #424242;
@@ -259,4 +259,21 @@ a.link:visited {
 
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
+}
+
+.glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+  
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px green, 0 0 40px green, 0 0 50px green, 0 0 60px green, 0 0 70px green;
+    }
+    
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px lightgreen, 0 0 40px lightgreen, 0 0 50px lightgreen, 0 0 60px lightgreen, 0 0 70px lightgreen, 0 0 80px lightgreen;
+    }
 }

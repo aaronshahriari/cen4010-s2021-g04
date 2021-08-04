@@ -54,6 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$userCreated) {
 
             $UID = $result['sub'];
+            
+            setcookie('UID', $UID, time() + (86400 * 30), "/");
+            echo "<script>console.log(' New UID". $UID."');</script>";
 
             $UFN = $result["given_name"];
 
@@ -61,11 +64,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $UE = $result["email"];
 
+            $UPP = $result["picture"];
 
-            $sql2 = "INSERT INTO Users(UID, UFN, ULN, UE) VALUES('$UID','$UFN','$ULN','$UE')";
+            $sql2 = "INSERT INTO Users(UID, UFN, ULN, UE, UPP) VALUES('$UID','$UFN','$ULN','$UE','$UPP')";
+            $sql3 = "UPDATE Users SET UPP = '$UPP' WHERE UID = $UID";
             if (mysqli_query($conn, $sql2)) {
                 echo "New record created successfully";
             } else {
+                mysqli_query($conn, $sql3);
                 echo "Error: " . $sql2 . "<br>" . $conn->error . '</br>';
             }
         }

@@ -1,3 +1,4 @@
+﻿
 :root {
     --bodyColor: #101010;
     --main_color: green;
@@ -5,6 +6,10 @@
     --button: #FFFFFF;
     --background: #909090;
     --footerColor: #202020;
+    /*text entry*/
+    background: #f5f6fa;
+    color: #9c9c9c;
+    font: 1rem "PT Sans", sans-serif;
 }
 
 
@@ -16,12 +21,14 @@ body {
     background-color: var(--bodyColor);
     text-align: center;
 }
+/*
 .box {
     width: 1600px;
     border: 15px solid green;
     padding: 50px;
     margin: 20px;
 }
+*/
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
@@ -158,9 +165,132 @@ a:hover {
     align-items: center;
     justify-content: center;
 }
-    */
+        */
+/*--------new from git--------*/
 .weather {
-    border: 4px dotted blue;
+    color: green;
+    border: 4px solid green;
+    margin-left: auto;
+    margin-right: auto;
     width: 50%;
-    text-align:centerl
+    border-radius: 15px;
+    padding-bottom: 20px;
+}  
+
+/*Weather*/
+
+a {
+    color: inherit;
+}
+
+    a:hover {
+        color: #7f8ff4;
+    }
+
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* .btn {
+    display: inline-block;
+    background: transparent;
+    color: inherit;
+    font-family: 'Noto Sans', sans-serif;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    transition: all 200ms ease-in;
+    cursor: pointer;
+} */
+
+.btn--primary {
+    display: inline-block;
+    background: transparent;
+    color: inherit;
+    font-family: 'Noto Sans', sans-serif;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    transition: all 200ms ease-in;
+    cursor: pointer;
+
+    background: green;
+    color: white;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 12px 36px;
+}
+
+    .btn--primary:hover {
+        background: #00ff00; 
+        color: white;
+    }
+
+    .btn--primary:active {
+        background: #7f8ff4;
+        box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    }
+
+.btn--inside {
+    margin-left: -96px;
+}
+
+.form__field {
+    width: 360px;
+    background: #202020;
+    color: #a3a3a3;
+    font-family: 'Noto Sans', sans-serif;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+    border: 0;
+    outline: 0;
+    padding: 22px 18px;
+}
+
+form {
+     display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+.results {
+    color: #909090;
+    display: none;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 125%;
+    margin-bottom: 20px;
+}
+.text1 {
+    color: darkgrey;
+    font-weight: bolder;
+    font-family: 'Noto Sans', sans-serif;
+}
+.imagecontainer {
+    display: none;
+}
+.loading {
+    display: none;
+}
+.error1 {
+    display: none;
+    top: 5px;
+    border: 5px;
+    border-style: hidden solid hidden solid;
+    border-color: #900000;
+    color: red;
+    background: #e4717a;
+    width: 50%;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.errortext {
+    text-align: center;
+    color: #900000;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    padding: 5px;
 }

@@ -14,6 +14,19 @@
     --footerColor: #455463;
     --footerFontColor: #dfe1f7;
 }
+.active {
+    width: 1000px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+}
+
+.passive {
+    width: 1000px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+}
 
 @keyframes sizeGrow {
     from {
@@ -195,9 +208,4 @@ a.link:visited {
     top: 0;
 }
 
-.box {
-    width: 1000px;
-    border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-}
+

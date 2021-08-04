@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+
+    <!-- Google Signin -->
+    <meta name='google-signin-client_id'
+        content='1084043775881-4ls331bisg1gcnpb1uev003uhsm529rb.apps.googleusercontent.com'>
+    <script src='https://apis.google.com/js/platform.js' async defer></script>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/login.css">
+
+    <!-- Navbar JS -->
+    <script src='./js/navbar.js'></script>
+    <!-- Personal CSS -->
+    <!-- <link rel="stylesheet" href="./css/browse.css" /> -->
+    <style>
+        :root {
+            --bodyColor: #101010;
+            --main_color: green;
+            --secondary_color: lightgreen;
+            --button: #FFFFFF;
+            --background: #909090;
+            --footerColor: #202020;
+        }
+
+
+        html {
+            overflow-x: hidden;
+            margin: auto;
+        }
+
+        body {
+            background-color: var(--bodyColor);
+            text-align: center;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        #activelink {
+            color: var(--main_color);
+            font-weight: bolder;
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        #passivelink {
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        header {
+            background-image: url("../slideimgs/windmill.jpg");
+            background-attachment: fixed;
+            background-repeat: repeat-x;
+            height: 50vh;
+            background-attachment: fixed;
+            background-size: 100% 70%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 479px) {
+            header {
+                background-size: 100% 15%;
+
+            }
+        }
+
+        #pagetitle {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 75px;
+            font-weight: 900;
+            color: white;
+            text-align: center;
+        }
+
+        @media (max-width: 479px) {
+            #pagetitle {
+                font-size: 30px;
+            }
+        }
+
+        /*
+#imagecontainer {
+    
+}*/
+        #main1 {
+            background-color: var(--bodyColor);
+            ;
+            height: 900px;
+        }
+
+
+
+
+
+        #maintext {
+            color: #909090;
+            font-size: 15px;
+            font-family: 'Noto Sans', sans-serif;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 75%;
+        }
+
+        h1 {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 30px;
+            font-weight: bolder;
+            color: lime;
+            text-align: center;
+        }
+
+        strong {
+            color: var(--main_color);
+        }
+
+        .button {
+            border-radius: 4px;
+            background-color: var(--main_color);
+            border: none;
+            color: var(--button);
+            text-align: center;
+            font-size: 22px;
+            padding: 10px;
+            width: 150px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+
+
+        #foottext {
+            text-align: left;
+        }
+
+        a {
+            color: var(--main_color);
+        }
+
+        a:hover {
+            color: var(--secondary_color);
+        }
+
+        a:visited {
+            color: var(--main_color);
+        }
+
+        a:active {
+            color: var(--main_color);
+        }
+
+        /*Button CSS source: David Connor from codepen.io/davidicus/*/
+        /*Button CSS source: David Connor from codepen.io/davidicus/*/
+        .container {
+
+            padding: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .animated-word {
+            font-family: Helvetica;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            font-size: 50px;
+            text-align: center;
+            color: green;
+            cursor: pointer;
+            max-width: 300px;
+            width: 130%;
+            outline: 3px solid;
+            outline-color: #A0A0A0;
+            outline-offset: 50px;
+            transition: all 600ms cubic-bezier(0.2, 0, 0, 0.8);
+        }
+
+        .animated-word:hover {
+            color: lime;
+            outline-color: rgba(71, 126, 232, 0);
+            outline-offset: 100px;
+        }
+
+        /* Testing for Browse 1 */
+
+        #FilterContainer {
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-bottom: 3%;
+            text-align: left;
+            font-family: Helvetica;
+            letter-spacing: 0.2em;
+            font-weight: 300;
+            font-size: 32px;
+            color: white;
+            outline: 3px solid;
+            outline-color: #A0A0A0;
+            outline-offset: 50px;
+        }
+
+        #SubmitData {
+            border-radius: 8px;
+            color: #101010;
+        }
+
+        #DateFilter {
+            margin-top: 7%;
+            text-align: center;
+        }
+
+        #SubmitData:hover {
+            background-color: lime;
+            color: #101010;
+            border-radius: 8px;
+            box-shadow: 0 12px 16px 0 rgb(24, 65, 24), 0 17px 50px 0 rgb(24, 65, 24);
+        }
+
+        #FilterResults {
+
+            margin-top: 10%;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-bottom: 3%;
+            padding-bottom: 3%;
+            text-align: left;
+            font-family: Helvetica;
+            letter-spacing: 0.2em;
+            font-weight: 300;
+            font-size: 32px;
+            color: white;
+            outline: 3px solid;
+            outline-color: #A0A0A0;
+            outline-offset: 50px;
+        }
+
+        #SearchBar {
+            background-color: #A0A0A0;
+        }
+    </style>
+    <script src="./js/browse.js"></script>
+
+
+
+</head>
+
+<body>
+    <div class='nav-copy'></div>
+    <div class="g-signin2" style="visibility: hidden"></div>
+
+    <header>
+        <p id="pagetitle">Browse</p>
+    </header>
+
+    <h1>Filters</h1>
+
+    <div id="FilterContainer" class="row">
+        <div id="CheckBoxFilter" class="col-lg-4  col-sm-6">
+            <form method="POST" action="./php/Filter.php">
+                <!--Link to data filter-->
+                <input type="checkbox" id="Free" name="Free" value="Free">
+                <label for="Free"> No Cost</label><br>
+
+                <input type="checkbox" id="Location" name="Location" value="Outdoors">
+                <label for="Location"> Outdoors</label><br>
+                <input type="checkbox" id="Campus" name="Campus" value="Campus">
+                <label for="Campus"> Campus Event</label><br>
+                <input type="checkbox" id="Covid" name="Covid" value="CovidSafe">
+                <label for="Covid"> Covid Safe</label><br><br><br>
+                <input type="text" id="SearchBar" name="SearchF" value="CovidSafe">
+                <input id="SubmitData" type="submit" value="Submit">
+            </form>
+        </div>
+        <div id="DateFilter" class="col-lg-4  col-sm-6">
+            <form action="">
+                <label for="Date">Date:</label>
+                <input type="date" id="date" name="date">
+                <input id="SubmitData" type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="col-lg-4  col-sm-12">
+
+
+            </script>
+            <div id="googleMap" style="width:100%;height:400px;"></div>
+
+            <script>
+                function myMap() {
+                    var mapProp = {
+                        center: new google.maps.LatLng(26.3750, 80.1011),
+                        zoom: 5,
+                    };
+                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                }
+            </script>
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+        </div>
+    </div>
+    <div id="FilterResults" class="Row">
+        <h1>Results</h1>
+        <div id="Photo" class="col-lg-3  col-sm-6">
+            PHOTO
+        </div>
+        <div id="Name" class="col-lg-3  col-sm-6">
+            NAME/RATING
+        </div>
+        <div id="Info" class="col-lg-3  col-sm-6">
+            INFO
+        </div>
+        <div id="AddEvent" class="col-lg-3  col-sm-6">
+            ADD EVENT
+        </div>
+
+
+    </div>
+
+</body>
+
+
+</div>
+</div>
+<!--Source: Original Button Design "David Connor" from codepen.io/davidicus/-->
+<br />
+<br />
+
+
+</body>
+
+</html>

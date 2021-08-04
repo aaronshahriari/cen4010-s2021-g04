@@ -1,12 +1,13 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title>Home</title>
     <!-- Google Signin -->
     <meta name='google-signin-client_id'
-          content='1084043775881-4ls331bisg1gcnpb1uev003uhsm529rb.apps.googleusercontent.com'>
+        content='1084043775881-4ls331bisg1gcnpb1uev003uhsm529rb.apps.googleusercontent.com'>
     <script src='https://apis.google.com/js/platform.js' async defer></script>
 
     <!-- Latest compiled and minified CSS -->
@@ -33,9 +34,11 @@
     <!-- Navbar JS -->
     <script src='./js/navbar.js'></script>
     <script src='./js/index.js'></script>
+    
 
 
 </head>
+
 <body>
     <div class='nav-copy'></div>
 
@@ -94,13 +97,17 @@
                 enjoy with your friends and family! If your already familiar with the site features
                 you can go on ahead start planning some awesome adventures, but for those who are first
                 timers or simply need a refresher keep on reading! Since your reading this you have already
-                created your account, you can view your account information by clicking the <strong>My Profile</strong> tab on the top right.
-                You can browse a list of covid friendly activites that we have availible in the <strong>Browse</strong> tab. To plan
-                an activity with friends simply click on the activity you would like and follow the instruction provided on the next page.
-                To view your currently planned activities or to add new friends click on <strong>Social</strong> on the top navigation bar.<br />
+                created your account, you can view your account information by clicking the <strong>My Profile</strong>
+                tab on the top right.
+                You can browse a list of covid friendly activites that we have availible in the <strong>Browse</strong>
+                tab. To plan
+                an activity with friends simply click on the activity you would like and follow the instruction provided
+                on the next page.
+                To view your currently planned activities or to add new friends click on <strong>Social</strong> on the
+                top navigation bar.<br />
             </p>
         </div>
-        <button class="button" onclick="BrowseGo()"><span>Browse</span></button>
+        <button class="button" onclick="window.location.href ='browse1.php';"><span>Browse</span></button>
         <br />
         <br />
     </section>
@@ -129,33 +136,52 @@
             </p>
         </div>
     </section>
-
         -->
-
-    <!-- <section>
+    <section>
         <div class="weather">
-            hello
+            <h1>Check The Current Weather at Your Destination</h1>
+            <!--Input text by Daniel Luca from codepen.io-->
+
+            <form class="form">
+                <input autocomplete="false" name="hidden" id="search" type="search" class="form__field"
+                    placeholder="Zip Code Or City" />
+                <button type="button" class="btn btn--primary btn--inside uppercase"
+                    onclick="getWeather()">Search</button>
+            </form>
+            <div id="results" class="results">
+                <div id="loading" class="loading">
+                    <img id="imageicon" src="loading.gif" alt="loading" height="30" width="30">
+                </div>
+                <div id="imagecontainer" class="imagecontainer">
+                    <img id="myImage" src="https://openweathermap.org/img/wn/01n@2x.png" alt="weather icon">
+                </div>
+                <p id="weathertext">The temperature in </p>
+                <p id="name1" class="text1"></p>
+                <p id="weathertext">is currently </p>
+                <p id="temp" class="text1"></p>
+                <p id="weathertext">The weather description is</p>
+                <p id="desc" class="text1"></p>
+
+            </div>
+
+            <div id="error1" class="error1">
+                <p class="errortext"><span class="glyphicon glyphicon-exclamation-sign"></span> Please check your entry
+                    and try again.</p>
+            </div>
         </div>
-    </section> -->
 
+    </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- Allows google sign in -->
     <div class="g-signin2" style="visibility: hidden"></div>
 
+
     <footer class="container-fluid text-center">
-        <p id="foottext">Site created by students attending <strong>Florida Atlantic University</strong> find out more <a href="about.html">here</a></p>
+        <p id="foottext">Site created by students attending <strong>Florida Atlantic University</strong> find out more
+            <a href="about.html">here</a>
+        </p>
     </footer>
 
 </body>
+
 </html>
